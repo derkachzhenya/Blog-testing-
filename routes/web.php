@@ -5,13 +5,9 @@ use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-
-
 Route::get('/', [IndexController::class, 'index'])->name('home');
 
-
-
-Route::prefix('dashboard')->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () {
     Route::resource('/category', CategoryController::class);
 });
 
@@ -25,4 +21,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
