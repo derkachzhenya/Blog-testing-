@@ -120,8 +120,57 @@
                         <div class="mt-6">
                             <ul class="space-y-2">
                                 @foreach($categories as $category)
-                                    <li class="p-3 bg-gray-100 rounded-xl">
-                                        {{ $category->title }}
+                                    <li class="flex items-center justify-between gap-4 rounded-[1.5rem] bg-gray-100 px-5 py-4">
+                                        <div class="min-w-0">
+                                            <p class="truncate text-base font-medium text-gray-900">
+                                                {{ $category->title }}
+                                            </p>
+                                        </div>
+
+                                        <div class="flex items-center gap-2">
+                                            <a
+                                                class="inline-flex h-10 w-10 items-center justify-center rounded-2xl text-sky-600 transition hover:bg-sky-50 hover:text-sky-700"
+                                                href="{{ route('category.show', $category) }}"
+                                                title="View category"
+                                            >
+                                                <span class="sr-only">View category</span>
+                                                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                                    <path d="M2.25 12s3.75-6.75 9.75-6.75S21.75 12 21.75 12 18 18.75 12 18.75 2.25 12 2.25 12z" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M12 15.75A3.75 3.75 0 1012 8.25a3.75 3.75 0 000 7.5z" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </a>
+
+                                            <a
+                                                class="inline-flex h-10 w-10 items-center justify-center rounded-2xl text-amber-600 transition hover:bg-amber-50 hover:text-amber-700"
+                                                href="{{ route('category.edit', $category) }}"
+                                                title="Edit category"
+                                            >
+                                                <span class="sr-only">Edit category</span>
+                                                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                                    <path d="M16.862 4.487a2.25 2.25 0 113.182 3.182L8.25 19.463 3.75 20.25l.788-4.5L16.862 4.487z" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </a>
+
+                                            <form action="{{ route('category.destroy', $category) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button
+                                                    class="inline-flex h-10 w-10 items-center justify-center rounded-2xl text-rose-600 transition hover:bg-rose-50 hover:text-rose-700"
+                                                    title="Delete category"
+                                                    type="submit"
+                                                >
+                                                    <span class="sr-only">Delete category</span>
+                                                    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                                        <path d="M6.75 7.5h10.5" stroke-linecap="round" />
+                                                        <path d="M9.75 3.75h4.5" stroke-linecap="round" />
+                                                        <path d="M8.25 7.5v10.125A1.125 1.125 0 009.375 18.75h5.25a1.125 1.125 0 001.125-1.125V7.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M10.5 10.5v4.5" stroke-linecap="round" />
+                                                        <path d="M13.5 10.5v4.5" stroke-linecap="round" />
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </div>
                                     </li>
                                 @endforeach
                             </ul>

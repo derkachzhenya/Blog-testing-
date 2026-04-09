@@ -12,7 +12,8 @@ class CategoryController extends Controller
 {
     public function index(): View
     {
-        $categories = Category::all();
+        $categories = Category::query()->latest()->get();
+
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -28,5 +29,33 @@ class CategoryController extends Controller
         return redirect()
             ->route('category.index')
             ->with('status', 'Category created successfully.');
+    }
+
+    public function show(Category $category): View
+    {
+        return view('admin.categories.show', compact('category'));
+    }
+
+    public function edit(Category $category): View
+    {
+        return view('admin.categories.edit', compact('category'));
+    }
+
+    public function update(StoreCategoryRequest $request, Category $category): RedirectResponse
+    {
+        $category->update($request->validated());
+
+        return redirect()
+            ->route('category.index')
+            ->with('status', 'Category updated successfully.');
+    }
+
+    public function destroy(Category $category): RedirectResponse
+    {
+        $category->delete();
+
+        return redirect()
+            ->route('category.index')
+            ->with('status', 'Category deleted successfully.');
     }
 }
