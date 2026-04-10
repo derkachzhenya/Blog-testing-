@@ -59,13 +59,13 @@
 
                     <a
                         class="flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white"
-                        href="{{ route('profile.edit') }}"
+                        href="{{ route('tag.index') }}"
                     >
                         <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                             <path d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M4.5 19.125a7.125 7.125 0 0115 0" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <span x-show="sidebarOpen">Users</span>
+                        <span x-show="sidebarOpen">Tags</span>
                     </a>
 
                     <a
