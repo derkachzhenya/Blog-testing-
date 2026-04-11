@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\ProfileController;
@@ -10,6 +11,7 @@ Route::get('/', [IndexController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () {
     Route::resource('/category', CategoryController::class);
+    Route::resource('/post', PostController::class);
     Route::resource('/tag', TagController::class);
 });
 

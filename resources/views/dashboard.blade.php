@@ -46,6 +46,19 @@
 
                     <a
                         class="flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white"
+                        href="{{ route('post.index') }}"
+                    >
+                        <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path d="M7.5 6.75h9" stroke-linecap="round" />
+                            <path d="M7.5 12h9" stroke-linecap="round" />
+                            <path d="M7.5 17.25h5.25" stroke-linecap="round" />
+                            <path d="M5.25 4.5h13.5A1.5 1.5 0 0120.25 6v12a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V6a1.5 1.5 0 011.5-1.5z" stroke-linejoin="round" />
+                        </svg>
+                        <span x-show="sidebarOpen">Posts</span>
+                    </a>
+
+                    <a
+                        class="flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium text-slate-300 transition hover:bg-white/10 hover:text-white"
                         href="{{ route('category.index') }}"
                     >
                         <svg class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
@@ -121,7 +134,7 @@
                             </a>
                             <a
                                 class="rounded-2xl bg-white px-4 py-2 text-center text-sm font-medium text-gray-600 ring-1 ring-gray-200 transition hover:bg-gray-50"
-                                href="{{ route('home') }}"
+                                href="{{ route('post.index') }}"
                             >
                                 Posts
                             </a>
